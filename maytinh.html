@@ -122,36 +122,105 @@ div.equal:active {
 </style>
 
 <div class="calculator">
-    <div class="input" id="input"></div>
+    <div class="input" id="input">
+
+    </div>
     <div class="buttons">
         <div class="operators">
-            <div>+</div>
-            <div>-</div>
-            <div>&times;</div>
-            <div>&divide;</div>
+            <div onclick="cong">+</div>
+            <div onclick="tru">-</div>
+            <div onclick="nhan">&times;</div>
+            <div onclick="chia">&divide;</div>
         </div>
         <div class="leftPanel">
             <div class="numbers">
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
+                <div onclick="myFunction7()" id="7">7</div>
+                <div onclick="myFunction8()" id="8">8</div>
+                <div onclick="myFunction9()" id="9">9</div>
             </div>
             <div class="numbers">
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
+                <div onclick="myFunction4()" id="4">4</div>
+                <div onclick="myFunction5()" id="5">5</div>
+                <div onclick="myFunction6()" id="6">6</div>
             </div>
             <div class="numbers">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+                <div onclick="myFunction1()" id="1">1</div>
+                <div onclick="myFunction2()" id="2">2</div>
+                <div onclick="myFunction3()" id="3">3</div>
             </div>
             <div class="numbers">
-                <div>0</div>
-                <div>.</div>
+                <div onclick="myFunction0()" id="0">0</div>
+                <div onclick="myFunctionDot()">.</div>
                 <div id="clear">C</div>
             </div>
         </div>
-        <div class="equal" id="result">=</div>
+        <div class="equal" id="result" onclick="myFunction">=</div>
     </div>
 </div>
+  <script>
+    while(!document.getElementById("clear").click)
+    do{
+      var num="";
+      var total=0;
+      function myFunction7(){
+      document.getElementById('input').innerHTML="7";
+      num+="7";
+      }
+      function myFunction8(){
+      document.getElementById('input').innerHTML="8";
+      num+="8";
+      }
+      function myFunction1(){
+      document.getElementById('input').innerHTML="1";
+      num+="1";
+      }
+      function myFunction2(){
+      document.getElementById('input').innerHTML="2";
+       num+="2";
+      }
+      function myFunction3(){
+      document.getElementById('input').innerHTML="3";
+       num+="3";
+      }
+      function myFunction4(){
+      document.getElementById('input').innerHTML="4";
+       num+="4";
+      }
+      function myFunction5(){
+      document.getElementById('input').innerHTML="5";
+       num+="5";
+      }
+      function myFunction6(){
+      document.getElementById('input').innerHTML="6";
+       num+="6";
+      }
+      function myFunction9(){
+      document.getElementById('input').innerHTML="9";
+       num+="9";
+      }
+      function myFunction0(){
+      document.getElementById('input').innerHTML="0";
+       num+="0";
+      }
+      console.log(num);
+      if(document.getElementById("chia").click==true ||document.getElementById("cong").click==true ||document.getElementById("tru ").click==true|| document.getElementById("nhan").click==true){
+        temp+= num;    
+        num=0;
+        if (document.getElementById("chia").click==true && document.getElementById("result").click==true) {
+            total= temp / num;
+        }
+        if (document.getElementById("nhan").click==true && document.getElementById("result").click==true) {
+            total= temp * num;
+        }
+        if (document.getElementById("cong").click==true && document.getElementById("result").click==true) {
+            total= temp + num;
+        }
+        if (document.getElementById("tru").click==true && document.getElementById("result").click==true) {
+            total= temp - num;
+        }
+      }
+      function myFunction(){
+        document.getElementById('input').innerHTML=total;
+      }
+    }
+  </script>

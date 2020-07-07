@@ -106,6 +106,7 @@ div.equal {
   color: #FFF;
   background-color: #4d90fe;
   transition: all .2s ease-in-out;
+  width: 90%;
 }
 
 div.equal:hover {
@@ -122,104 +123,69 @@ div.equal:active {
 </style>
 
 <div class="calculator">
-    <div class="input" id="input">
-
-    </div>
+  <form name="hienThi">
+    <input class="input" name="display" type="text" value="">
+  </form>
     <div class="buttons">
         <div class="operators">
-            <div onclick="cong">+</div>
-            <div onclick="tru">-</div>
-            <div onclick="nhan">&times;</div>
-            <div onclick="chia">&divide;</div>
+            <div id=""  onclick="cong()" >+</div>
+            <div id="" onclick="tru()">-</div>
+            <div id="" onclick="nhan()">&times;</div>
+            <div id="" onclick="chia()">&divide;</div>
         </div>
         <div class="leftPanel">
             <div class="numbers">
-                <div onclick="myFunction7()" id="7">7</div>
-                <div onclick="myFunction8()" id="8">8</div>
-                <div onclick="myFunction9()" id="9">9</div>
+                <div id="7" value="7" onclick="hienThi.display.value+=7">7</div>
+                <div id="8" value="8" onclick="hienThi.display.value+=8">8</div>
+                <div id="9" value="9" onclick="hienThi.display.value+=9">9</div>
             </div>
             <div class="numbers">
-                <div onclick="myFunction4()" id="4">4</div>
-                <div onclick="myFunction5()" id="5">5</div>
-                <div onclick="myFunction6()" id="6">6</div>
+                <div id="4" value="4" onclick="hienThi.display.value+=4">4</div>
+                <div id="5" value="5" onclick="hienThi.display.value+=5">5</div>
+                <div id="6" value="6" onclick="hienThi.display.value+=6">6</div>
             </div>
             <div class="numbers">
-                <div onclick="myFunction1()" id="1">1</div>
-                <div onclick="myFunction2()" id="2">2</div>
-                <div onclick="myFunction3()" id="3">3</div>
+                <div id="1" value="1" onclick="hienThi.display.value+=1">1</div>
+                <div id="2" value="2" onclick="hienThi.display.value+=2">2</div>
+                <div id="3" value="3" onclick="hienThi.display.value+=3">3</div>
             </div>
             <div class="numbers">
-                <div onclick="myFunction0()" id="0">0</div>
-                <div onclick="myFunctionDot()">.</div>
-                <div id="clear">C</div>
+                <div id="0" onclick="hienThi.display.value+=0">0</div>
+                <div >.</div>
+                <div id="clear" onclick="hienThi.display.value=0">C</div>
             </div>
         </div>
-        <div class="equal" id="result" onclick="myFunction">=</div>
+        <div class="equal" id="result" onclick="result">=</div>
     </div>
 </div>
   <script>
-    
       var time = date().getHours() + ":" + date().getMinutes(); 
-      var num="";
       var total=0;
-      function myFunction7(){
-      document.getElementById('input').innerHTML="7";
-      num+="7";
+      var temp = 0;
+      var num2=0;
+      function cong(){
+        temp = hienThi.display.value;
+        hienThi.display.value="";
+        total= temp+ num2;
       }
-      function myFunction8(){
-      document.getElementById('input').innerHTML="8";
-      num+="8";
+      function tru(){
+        temp = hienThi.display.value;   
+        hienThi.display.value="";
+        total=temp-num2;
       }
-      function myFunction1(){
-      document.getElementById('input').innerHTML="1";
-      num+="1";
+      function nhan(){
+        temp = hienThi.display.value;
+        hienThi.display.value="";
+        total=temp*num2;
       }
-      function myFunction2(){
-      document.getElementById('input').innerHTML="2";
-       num+="2";
+      function chia(){
+        temp = hienThi.display.value;
+        hienThi.display.value="";
+        total=temp/num2;
       }
-      function myFunction3(){
-      document.getElementById('input').innerHTML="3";
-       num+="3";
-      }
-      function myFunction4(){
-      document.getElementById('input').innerHTML="4";
-       num+="4";
-      }
-      function myFunction5(){
-      document.getElementById('input').innerHTML="5";
-       num+="5";
-      }
-      function myFunction6(){
-      document.getElementById('input').innerHTML="6";
-       num+="6";
-      }
-      function myFunction9(){
-      document.getElementById('input').innerHTML="9";
-       num+="9";
-      }
-      function myFunction0(){
-      document.getElementById('input').innerHTML="0";
-       num+="0";
-      }
-      console.log(num);
-      if(document.getElementById("chia").click==true ||document.getElementById("cong").click==true ||document.getElementById("tru ").click==true|| document.getElementById("nhan").click==true){
-        temp+= num;    
-        num=0;
-        if (document.getElementById("chia").click==true && document.getElementById("result").click==true) {
-            total= temp / num;
-        }
-        if (document.getElementById("nhan").click==true && document.getElementById("result").click==true) {
-            total= temp * num;
-        }
-        if (document.getElementById("cong").click==true && document.getElementById("result").click==true) {
-            total= temp + num;
-        }
-        if (document.getElementById("tru").click==true && document.getElementById("result").click==true) {
-            total= temp - num;
-        }
-      }
-      function myFunction(){
-        document.getElementById('input').innerHTML=total;
+      function result(){
+        num2= hienThi.display.value;
+        hienThi.display.value= total;
+
       }
   </script>

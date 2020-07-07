@@ -124,68 +124,109 @@ div.equal:active {
 
 <div class="calculator">
   <form name="hienThi">
+     <input class="input" name="tongHop" type="text" value="">
     <input class="input" name="display" type="text" value="">
   </form>
     <div class="buttons">
         <div class="operators">
-            <div id=""  onclick="cong()" >+</div>
-            <div id="" onclick="tru()">-</div>
-            <div id="" onclick="nhan()">&times;</div>
-            <div id="" onclick="chia()">&divide;</div>
+            <div id=""  onclick="chuyenTextCong()"> + </div>
+            <div id=""  onclick="chuyenTextTru()"> - </div>
+            <div id=""  onclick="chuyenTextNhan()"> &times; </div>
+            <div id=""  onclick="chuyenTextChia()"> &divide; </div>
         </div>
         <div class="leftPanel">
             <div class="numbers">
-                <div id="7" value="7" onclick="hienThi.display.value+=7">7</div>
-                <div id="8" value="8" onclick="hienThi.display.value+=8">8</div>
-                <div id="9" value="9" onclick="hienThi.display.value+=9">9</div>
+                <div id="7" value="7" onclick="hienThi.display.value += 7">7</div>
+                <div id="8" value="8" onclick="hienThi.display.value += 8">8</div>
+                <div id="9" value="9" onclick="hienThi.display.value += 9">9</div>
             </div>
             <div class="numbers">
-                <div id="4" value="4" onclick="hienThi.display.value+=4">4</div>
-                <div id="5" value="5" onclick="hienThi.display.value+=5">5</div>
-                <div id="6" value="6" onclick="hienThi.display.value+=6">6</div>
+                <div id="4" value="4" onclick="hienThi.display.value += 4">4</div>
+                <div id="5" value="5" onclick="hienThi.display.value += 5">5</div>
+                <div id="6" value="6" onclick="hienThi.display.value += 6">6</div>
             </div>
             <div class="numbers">
-                <div id="1" value="1" onclick="hienThi.display.value+=1">1</div>
-                <div id="2" value="2" onclick="hienThi.display.value+=2">2</div>
-                <div id="3" value="3" onclick="hienThi.display.value+=3">3</div>
+                <div id="1" value="1" onclick="hienThi.display.value += 1">1</div>
+                <div id="2" value="2" onclick="hienThi.display.value += 2">2</div>
+                <div id="3" value="3" onclick="hienThi.display.value += 3">3</div>
             </div>
             <div class="numbers">
                 <div id="0" onclick="hienThi.display.value+=0">0</div>
                 <div >.</div>
-                <div id="clear" onclick="hienThi.display.value=0">C</div>
+                <div onclick="clear()">C</div>
             </div>
         </div>
-        <div class="equal" id="result" onclick="result">=</div>
+        <div class="equal" id="result" onclick="chuyenTextResult()">=</div>
     </div>
 </div>
   <script>
       var time = date().getHours() + ":" + date().getMinutes(); 
-      var total=0;
-      var temp = 0;
-      var num2=0;
-      function cong(){
-        temp = hienThi.display.value;
-        hienThi.display.value="";
-        total= temp+ num2;
+      var total;
+      var arr;
+      // chuyển sang text mới..........................................................................
+      function chuyenTextCong() {
+        hienThi.tongHop.value += hienThi.display.value + "+";
+        hienThi.display.value = "";
       }
-      function tru(){
-        temp = hienThi.display.value;   
-        hienThi.display.value="";
-        total=temp-num2;
+      function chuyenTextTru() {
+        hienThi.tongHop.value += hienThi.display.value + "-";
+        hienThi.display.value = "";
       }
-      function nhan(){
-        temp = hienThi.display.value;
-        hienThi.display.value="";
-        total=temp*num2;
+      function chuyenTextNhan() {
+        hienThi.tongHop.value += hienThi.display.value + "x";
+        hienThi.display.value = "";
       }
-      function chia(){
-        temp = hienThi.display.value;
-        hienThi.display.value="";
-        total=temp/num2;
+      function chuyenTextChia() { 
+        hienThi.tongHop.value += hienThi.display.value + "/";
+        hienThi.display.value = "";
       }
-      function result(){
-        num2= hienThi.display.value;
-        hienThi.display.value= total;
+      // xóa tất..........................................................................................
+      function clear() {
+        hienThi.tongHop.value = "";
+        hienThi.display.value = "";
+      }
+       //chuyển thành number 
 
+      // in kết quả .......................................................................................
+
+      function chuyenTextResult(){
+        hienThi.tongHop.value += hienThi.display.value;
+      //   var str = hienThi.tongHop.value;
+
+      //   //thực hiện phép cộng...........................................................................
+
+      //   if( hienThi.tongHop.value.search("+")>0){
+      //   arr = str.split("+");
+      //   for(var i=0 ; i < arr.length ; i++ ){
+      //     total += arr[i];
+      //   }
+
+      //   //thực hiện phép trừ............................................................................
+
+      //   if( hienThi.tongHop.value.search("-")>0){
+      //   arr = str.split("-");
+      //   total = a[0];
+      //   for(var i=1 ; i < arr.length ; i++ ){
+      //     total =  total - arr[i];
+      //   }
+
+      //   // thực hiện phép nhân ..........................................................................
+
+      //   if( hienThi.tongHop.value.search("x")>0){
+      //   arr= str.split("x");
+      //   for(var i=1 ; i < arr.length ; i++ ){
+      //     total = total * arr[i];
+      //   }
+
+      //   // thực hiện phép chia ...........................................................................
+
+      //   if( hienThi.tongHop.value.search("/")>0){
+      //   arr= str.split("/");
+      //   for(var i=1 ; i < arr.length ; i++ ){
+      //     total = total / arr[i];
+      //   }
+      // }
+        hienThi.display.value = time  + total;
       }
+      
   </script>

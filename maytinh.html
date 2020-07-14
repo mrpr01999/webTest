@@ -144,7 +144,7 @@ div.equal:active {
                 <div id="8" value="8" onmousedown="check()" onclick="hienThi.display.value += 8">8</div>
                 <div id="9" value="9" onmousedown="check()" onclick="hienThi.display.value += 9">9</div>
                 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">lich su</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">lịch sử</button>
 
 
             </div>
@@ -175,10 +175,10 @@ div.equal:active {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">lich su</h4>
+        <h4 class="modal-title">lịch sử</h4>
       </div>
       <div class="modal-body">
-        <p id="history">chua co lich su</p>
+        <p id="history"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -191,7 +191,7 @@ div.equal:active {
   <script>
       var total=0;
       var arr;
-      var add= "";
+      var add= [];
       // chuyển sang text mới..........................................................................
       function chuyenTextCong(){
         hienThi.tongHop.value += hienThi.display.value + "+";
@@ -236,10 +236,13 @@ div.equal:active {
           hienThi.tongHop.value= '';
         }
         else{
-        str = str.replace("x","*");
+        str = str.replace(/x/g,"*");
         total= eval(str);
-        add += str+ "=" + total +"\n";
-        document.getElementById("history").innerHTML=add;
+        add[add.length] =str+ "=" + total +"<br>";
+        document.getElementById("history").innerHTML= "";
+        for(var i = 0 ; i < add.length ; i++){
+          document.getElementById("history").innerHTML+=add[i] + "<br>";
+        }
         hienThi.display.value =' '+ total;
          hienThi.tongHop.value= '';
         }

@@ -152,81 +152,79 @@ div.equal:active {
             </div>
             <div class="numbers">
                 <div id="0" onclick="hienThi.display.value+=0">0</div>
-                <div >.</div>
-                <div onclick="clear()">C</div>
+                <div onclick="hienThi.display.value+='.' " >.</div>
+                <div onclick="xoa()">C</div>
             </div>
         </div>
         <div class="equal" id="result" onclick="chuyenTextResult()">=</div>
     </div>
 </div>
   <script>
-      var time = date().getHours() + ":" + date().getMinutes(); 
-      var total;
+      var time = date().toDateString();
+      var total=0;
       var arr;
       // chuyển sang text mới..........................................................................
-      function chuyenTextCong() {
+      function chuyenTextCong(){
         hienThi.tongHop.value += hienThi.display.value + "+";
         hienThi.display.value = "";
       }
-      function chuyenTextTru() {
+      function chuyenTextTru(){
         hienThi.tongHop.value += hienThi.display.value + "-";
         hienThi.display.value = "";
       }
-      function chuyenTextNhan() {
-        hienThi.tongHop.value += hienThi.display.value + "x";
+      function chuyenTextNhan(){
+        hienThi.tongHop.value += hienThi.display.value + "*";
         hienThi.display.value = "";
       }
-      function chuyenTextChia() { 
+      function chuyenTextChia(){
         hienThi.tongHop.value += hienThi.display.value + "/";
         hienThi.display.value = "";
       }
       // xóa tất..........................................................................................
-      function clear() {
-        hienThi.tongHop.value = "";
-        hienThi.display.value = "";
+      function xoa(){
+        hienThi.tongHop.value = '';
+        hienThi.display.value = '';
       }
-       //chuyển thành number 
+      //chuyển thành number 
 
       // in kết quả .......................................................................................
 
       function chuyenTextResult(){
         hienThi.tongHop.value += hienThi.display.value;
-      //   var str = hienThi.tongHop.value;
+        var str = hienThi.tongHop.value;
+        //thực hiện phép cộng...........................................................................
 
-      //   //thực hiện phép cộng...........................................................................
+        // if( hienThi.tongHop.value.search("+") >= 0 ){
+        // arr = str.split("+");
+        // for(var i=0 ; i < arr.length ; i++ ){
+        //   total += parseInt(arr[i]);
+        // }
+        // //thực hiện phép trừ............................................................................
 
-      //   if( hienThi.tongHop.value.search("+")>0){
-      //   arr = str.split("+");
-      //   for(var i=0 ; i < arr.length ; i++ ){
-      //     total += arr[i];
-      //   }
+        // if( hienThi.tongHop.value.search("-") >= 0){
+        // arr = str.split("-");
+        // total = parseInt(a[0]);
+        // for(var i=1 ; i < arr.length ; i++ ){
+        //   total =  total - arr[i];
+        // }
+        // // thực hiện phép nhân ..........................................................................
 
-      //   //thực hiện phép trừ............................................................................
+        // else if( hienThi.tongHop.value.search("x") >= 0){
+        // arr= str.split("x");
+        // 	total= parseInt(arr[0]);
+        // for(var i=1 ; i < arr.length ; i++ ){
+        //   total = total * parseInt(arr[i]);
+        // }
+        // // thực hiện phép chia ...........................................................................
+        // else if( hienThi.tongHop.value.search("/") >= 0){
+	       //  arr= str.split("/");
+	       //  total= parseInt(arr[0]);
+	       //  for(var i=1 ; i < arr.length ; i++ ){
+	       //    total = total / parseInt(arr[i]);
+	       //  }
 
-      //   if( hienThi.tongHop.value.search("-")>0){
-      //   arr = str.split("-");
-      //   total = a[0];
-      //   for(var i=1 ; i < arr.length ; i++ ){
-      //     total =  total - arr[i];
-      //   }
-
-      //   // thực hiện phép nhân ..........................................................................
-
-      //   if( hienThi.tongHop.value.search("x")>0){
-      //   arr= str.split("x");
-      //   for(var i=1 ; i < arr.length ; i++ ){
-      //     total = total * arr[i];
-      //   }
-
-      //   // thực hiện phép chia ...........................................................................
-
-      //   if( hienThi.tongHop.value.search("/")>0){
-      //   arr= str.split("/");
-      //   for(var i=1 ; i < arr.length ; i++ ){
-      //     total = total / arr[i];
-      //   }
-      // }
-        hienThi.display.value = time  + total;
-      }
-      
+	     total= eval(str);
+	     hienThi.display.value = total;
+	     hienThi.tongHop.value= '';
+      }      
   </script>

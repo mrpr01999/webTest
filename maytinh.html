@@ -1,4 +1,8 @@
-
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style type="text/css">
     body {
   width: 500px;
@@ -139,6 +143,10 @@ div.equal:active {
                 <div id="7" value="7" onmousedown="check()" onclick="hienThi.display.value += 7">7</div>
                 <div id="8" value="8" onmousedown="check()" onclick="hienThi.display.value += 8">8</div>
                 <div id="9" value="9" onmousedown="check()" onclick="hienThi.display.value += 9">9</div>
+                <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">lich su</button>
+
+
             </div>
             <div class="numbers">
                 <div id="4" value="4" onmousedown="check()" onclick="hienThi.display.value += 4">4</div>
@@ -159,10 +167,31 @@ div.equal:active {
         <div class="equal" id="result" onclick="chuyenTextResult()">=</div>
     </div>
 </div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">lich su</h4>
+      </div>
+      <div class="modal-body">
+        <p id="history">chua co lich su</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
   <script>
-      var time = date().toDateString();
       var total=0;
       var arr;
+      var add= "";
       // chuyển sang text mới..........................................................................
       function chuyenTextCong(){
         hienThi.tongHop.value += hienThi.display.value + "+";
@@ -197,51 +226,21 @@ div.equal:active {
       function chuyenTextResult(){
         hienThi.tongHop.value += hienThi.display.value;
         var str = hienThi.tongHop.value;
-        
-        //thực hiện phép cộng...........................................................................
-
-        // if( hienThi.tongHop.value.search("+") >= 0 ){
-        // arr = str.split("+");
-        // for(var i=0 ; i < arr.length ; i++ ){
-        //   total += parseInt(arr[i]);
-        // }
-        // //thực hiện phép trừ............................................................................
-
-        // if( hienThi.tongHop.value.search("-") >= 0){
-        // arr = str.split("-");
-        // total = parseInt(a[0]);
-        // for(var i=1 ; i < arr.length ; i++ ){
-        //   total =  total - arr[i];
-        // }
-        // // thực hiện phép nhân ..........................................................................
-
-        // else if( hienThi.tongHop.value.search("x") >= 0){
-        // arr= str.split("x");
-        // 	total= parseInt(arr[0]);
-        // for(var i=1 ; i < arr.length ; i++ ){
-        //   total = total * parseInt(arr[i]);
-        // }
-        // // thực hiện phép chia ...........................................................................
-        // else if( hienThi.tongHop.value.search("/") >= 0){
-	       //  arr= str.split("/");
-	       //  total= parseInt(arr[0]);	
-	       //  for(var i=1 ; i < arr.length ; i++ ){
-	       //    total = total / parseInt(arr[i]);
-	       //  }
-
 	     if(str.search("/0")>=0){
         hienThi.display.value=" error";
-          hienThi.tongHop.value= '';
+        hienThi.tongHop.value= '';
        }
        else{
         if(str.search("error")>=0){
-          hienThi.display.value="";
+          hienThi.display.value=" error";
           hienThi.tongHop.value= '';
         }
         else{
         str = str.replace("x","*");
         total= eval(str);
-        hienThi.display.value = total + ' ';
+        add += str+ "=" + total +"\n";
+        document.getElementById("history").innerHTML=add;
+        hienThi.display.value =' '+ total;
          hienThi.tongHop.value= '';
         }
        }

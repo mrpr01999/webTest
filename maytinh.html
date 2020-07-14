@@ -194,20 +194,34 @@ div.equal:active {
       var add= [];
       // chuyển sang text mới..........................................................................
       function chuyenTextCong(){
-        hienThi.tongHop.value += hienThi.display.value + "+";
+        if(!hienThi.tongHop.value.endsWith("+")){
+          hienThi.tongHop.value += hienThi.display.value + "+";
         hienThi.display.value = "";
+        }
+        
       }
       function chuyenTextTru(){
+        if(hienThi.tongHop.value.endsWith("-")){
+          hienThi.tongHop.value -="-";
+          hienThi.tongHop.value += hienThi.display.value + "+";
+          hienThi.display.value = "";
+        }
+        else
         hienThi.tongHop.value += hienThi.display.value + "-";
         hienThi.display.value = "";
+        
       }
       function chuyenTextNhan(){
+        if(!hienThi.tongHop.value.endsWith("x")){
         hienThi.tongHop.value += hienThi.display.value + "x";
         hienThi.display.value = "";
+        }
       }
       function chuyenTextChia(){
+        if(!hienThi.tongHop.value.endsWith("/")){
         hienThi.tongHop.value += hienThi.display.value + "/";
         hienThi.display.value = "";
+        }
       }	
       function check(){
       	if(hienThi.display.value.search(' ')>=0){

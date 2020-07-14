@@ -53,7 +53,7 @@
   background-color: #ddd;
   transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
 }
-
+ 
 .operators div:hover {
   background-color: #ddd;
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
@@ -136,22 +136,22 @@ div.equal:active {
         </div>
         <div class="leftPanel">
             <div class="numbers">
-                <div id="7" value="7" onclick="hienThi.display.value += 7">7</div>
-                <div id="8" value="8" onclick="hienThi.display.value += 8">8</div>
-                <div id="9" value="9" onclick="hienThi.display.value += 9">9</div>
+                <div id="7" value="7" onmousedown="check()" onclick="hienThi.display.value += 7">7</div>
+                <div id="8" value="8" onmousedown="check()" onclick="hienThi.display.value += 8">8</div>
+                <div id="9" value="9" onmousedown="check()" onclick="hienThi.display.value += 9">9</div>
             </div>
             <div class="numbers">
-                <div id="4" value="4" onclick="hienThi.display.value += 4">4</div>
-                <div id="5" value="5" onclick="hienThi.display.value += 5">5</div>
-                <div id="6" value="6" onclick="hienThi.display.value += 6">6</div>
+                <div id="4" value="4" onmousedown="check()" onclick="hienThi.display.value += 4">4</div>
+                <div id="5" value="5" onmousedown="check()" onclick="hienThi.display.value += 5">5</div>
+                <div id="6" value="6" onmousedown="check()" onclick="hienThi.display.value += 6">6</div>
             </div>
             <div class="numbers">
-                <div id="1" value="1" onclick="hienThi.display.value += 1">1</div>
-                <div id="2" value="2" onclick="hienThi.display.value += 2">2</div>
-                <div id="3" value="3" onclick="hienThi.display.value += 3">3</div>
+                <div id="1" value="1" onmousedown="check()" onclick="hienThi.display.value += 1">1</div>
+                <div id="2" value="2" onmousedown="check()" onclick="hienThi.display.value += 2">2</div>
+                <div id="3" value="3" onmousedown="check()" onclick="hienThi.display.value += 3">3</div>
             </div>
             <div class="numbers">
-                <div id="0" onclick="hienThi.display.value+=0">0</div>
+                <div id="0" onmousedown="check()" onclick="hienThi.display.value+=0">0</div>
                 <div onclick="hienThi.display.value+='.' " >.</div>
                 <div onclick="xoa()">C</div>
             </div>
@@ -173,14 +173,19 @@ div.equal:active {
         hienThi.display.value = "";
       }
       function chuyenTextNhan(){
-        hienThi.tongHop.value += hienThi.display.value + "*";
+        hienThi.tongHop.value += hienThi.display.value + "x";
         hienThi.display.value = "";
       }
       function chuyenTextChia(){
         hienThi.tongHop.value += hienThi.display.value + "/";
         hienThi.display.value = "";
+      }	
+      function check(){
+      	if(hienThi.display.value.search(' ')>=0){
+      		hienThi.display.value='';
+      	}
       }
-      // xóa tất..........................................................................................
+      // xóa tất.........................................s.................................................
       function xoa(){
         hienThi.tongHop.value = '';
         hienThi.display.value = '';
@@ -192,6 +197,7 @@ div.equal:active {
       function chuyenTextResult(){
         hienThi.tongHop.value += hienThi.display.value;
         var str = hienThi.tongHop.value;
+        
         //thực hiện phép cộng...........................................................................
 
         // if( hienThi.tongHop.value.search("+") >= 0 ){
@@ -218,13 +224,14 @@ div.equal:active {
         // // thực hiện phép chia ...........................................................................
         // else if( hienThi.tongHop.value.search("/") >= 0){
 	       //  arr= str.split("/");
-	       //  total= parseInt(arr[0]);
+	       //  total= parseInt(arr[0]);	
 	       //  for(var i=1 ; i < arr.length ; i++ ){
 	       //    total = total / parseInt(arr[i]);
 	       //  }
 
+	     str = str.replace("x","*");
 	     total= eval(str);
-	     hienThi.display.value = total;
+	     hienThi.display.value = total + ' ';
 	     hienThi.tongHop.value= '';
       }      
   </script>

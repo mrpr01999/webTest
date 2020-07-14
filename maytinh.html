@@ -229,9 +229,21 @@ div.equal:active {
 	       //    total = total / parseInt(arr[i]);
 	       //  }
 
-	     str = str.replace("x","*");
-	     total= eval(str);
-	     hienThi.display.value = total + ' ';
-	     hienThi.tongHop.value= '';
+	     if(str.search("/0")>=0){
+        hienThi.display.value=" error";
+          hienThi.tongHop.value= '';
+       }
+       else{
+        if(str.search("error")>=0){
+          hienThi.display.value="";
+          hienThi.tongHop.value= '';
+        }
+        else{
+        str = str.replace("x","*");
+        total= eval(str);
+        hienThi.display.value = total + ' ';
+         hienThi.tongHop.value= '';
+        }
+       }
       }      
   </script>

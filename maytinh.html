@@ -294,36 +294,53 @@ div.equal:active {
 				}
 			}
 //       ....................................................................
+
 			function sapXep(){
+
+				
+
 				for(var i=0 ; i < add.length ; i++ ){
 					var temp1;
 					var temp2;
+
+					
+
 					for(var j=i+1 ; j < add.length; j++){
+						console.log(result1[i]);
+						console.log(result1[j]);
+
 						if(result1[i]>result1[j]){
 							temp1= result1[i];
+							
 							result1[i]= result1[j];
+
+							
 							result1[j]= temp1;
+
+
 							temp2 = add[i];
 							add[i] = add[j]; 
 							add[j] = temp2;
+							
 						}
 					}
+					
 				}
 			document.getElementById("history").innerHTML= "";
 				for(var i = 0 ; i < add.length ; i++){
 					var text = add[i] + "=" + result1[i];
-							// Tạo mới một thẻ p
-						          var p = document.createElement("p");
-						          
-						          // Tạo text node
-						          var text = document.createTextNode(text);
-						          
-						          // Thêm nội dung HTML vào thẻ p
-						          p.appendChild(text);
-						          
-						          // Đưa thẻ P vào trong thẻ 
-						          document.getElementById('history').appendChild(p);
-						          p.onclick  = function(event){p.remove()};
+					// Tạo mới một thẻ p
+				          var p = document.createElement("p");
+				          
+				          // Tạo text node
+				          var text = document.createTextNode(text);
+				          
+				          // Thêm nội dung HTML vào thẻ p
+				          p.appendChild(text);
+				          
+				          // Đưa thẻ P vào trong thẻ 
+				          document.getElementById('history').appendChild(p);
+				          p.onclick  = function(event){p.remove()};
 				}
 			}      
 //       ....................................................................

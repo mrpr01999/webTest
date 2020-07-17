@@ -1,44 +1,44 @@
 <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style type="text/css">
-    body {
-  width: 500px;
-  margin: 4% auto;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: 5px;
-  font-size: 1.8rem;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+		body {
+	width: 500px;
+	margin: 4% auto;
+	font-family: 'Source Sans Pro', sans-serif;
+	letter-spacing: 5px;
+	font-size: 1.8rem;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
 .calculator {
-  /*padding: 20px;*/
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 1px;
+	/*padding: 20px;*/
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 1px;
 }
 
 .input {
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  height: 60px;
-  padding-right: 15px;
-  padding-top: 10px;
-  text-align: right;
-  margin-right: 6px;
-  font-size: 2.5rem;
-  overflow-x: auto;
-  transition: all .2s ease-in-out;
+	border: 1px solid #ddd;
+	border-radius: 1px;
+	height: 60px;
+	padding-right: 15px;
+	padding-top: 10px;
+	text-align: right;
+	margin-right: 6px;
+	font-size: 2.5rem;
+	overflow-x: auto;
+	transition: all .2s ease-in-out;
 }
 
 .input:hover {
-  border: 1px solid #bbb;
-  -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	border: 1px solid #bbb;
+	-webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .buttons {}
@@ -46,220 +46,286 @@
 .operators {}
 
 .operators div {
-  display: inline-block;
-  border: 1px solid #bbb;
-  border-radius: 1px;
-  width: 80px;
-  text-align: center;
-  padding: 10px;
-  margin: 20px 4px 10px 0;
-  cursor: pointer;
-  background-color: #ddd;
-  transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+	display: inline-block;
+	border: 1px solid #bbb;
+	border-radius: 1px;
+	width: 80px;
+	text-align: center;
+	padding: 10px;
+	margin: 20px 4px 10px 0;
+	cursor: pointer;
+	background-color: #ddd;
+	transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
 }
  
 .operators div:hover {
-  background-color: #ddd;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  border-color: #aaa;
+	background-color: #ddd;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	border-color: #aaa;
 }
 
 .operators div:active {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .leftPanel {
-  display: inline-block;
+	display: inline-block;
 }
 
 .numbers div {
-  display: inline-block;
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  width: 80px;
-  text-align: center;
-  padding: 10px;
-  margin: 10px 4px 10px 0;
-  cursor: pointer;
-  background-color: #f9f9f9;
-  transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+	display: inline-block;
+	border: 1px solid #ddd;
+	border-radius: 1px;
+	width: 80px;
+	text-align: center;
+	padding: 10px;
+	margin: 10px 4px 10px 0;
+	cursor: pointer;
+	background-color: #f9f9f9;
+	transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
 }
 
 .numbers div:hover {
-  background-color: #f1f1f1;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  border-color: #bbb;
+	background-color: #f1f1f1;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	border-color: #bbb;
 }
 
 .numbers div:active {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 div.equal {
-  display: inline-block;
-  border: 1px solid #3079ED;
-  border-radius: 1px;
-  width: 17%;
-  text-align: center;
-  padding: 127px 10px;
-  margin: 10px 6px 10px 0;
-  vertical-align: top;
-  cursor: pointer;
-  color: #FFF;
-  background-color: #4d90fe;
-  transition: all .2s ease-in-out;
-  width: 90%;
+	display: inline-block;
+	border: 1px solid #3079ED;
+	border-radius: 1px;
+	width: 17%;
+	text-align: center;
+	padding: 127px 10px;
+	margin: 10px 6px 10px 0;
+	vertical-align: top;
+	cursor: pointer;
+	color: #FFF;
+	background-color: #4d90fe;
+	transition: all .2s ease-in-out;
+	width: 90%;
 }
 
 div.equal:hover {
-  background-color: #307CF9;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  border-color: #1857BB;
+	background-color: #307CF9;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+	border-color: #1857BB;
 }
 
 div.equal:active {
-  font-weight: bold;
+	font-weight: bold;
 }
-    
+		
 </style>
 
 <div class="calculator">
-  <form name="hienThi">
-     <input class="input" name="tongHop" type="text" value="">
-    <input class="input" name="display" type="text" value="">
-  </form>
-    <div class="buttons">
-        <div class="operators">
-            <div id=""  onclick="chuyenTextCong()"> + </div>
-            <div id=""  onclick="chuyenTextTru()"> - </div>
-            <div id=""  onclick="chuyenTextNhan()"> &times; </div>
-            <div id=""  onclick="chuyenTextChia()"> &divide; </div>
-        </div>
-        <div class="leftPanel">
-            <div class="numbers">
-                <div id="7" value="7" onmousedown="check()" onclick="hienThi.display.value += 7">7</div>
-                <div id="8" value="8" onmousedown="check()" onclick="hienThi.display.value += 8">8</div>
-                <div id="9" value="9" onmousedown="check()" onclick="hienThi.display.value += 9">9</div>
-                <!-- Trigger the modal with a button -->
+	<form name="hienThi">
+		 <input class="input" name="tongHop" type="text" value="">
+		<input class="input" name="display" type="text" value="">
+	</form>
+		<div class="buttons">
+				<div class="operators">
+						<div id=""  onclick="chuyenTextCong()"> + </div>
+						<div id=""  onclick="chuyenTextTru()"> - </div>
+						<div id=""  onclick="chuyenTextNhan()"> &times; </div>
+						<div id=""  onclick="chuyenTextChia()"> &divide; </div>
+				</div>
+				<div class="leftPanel">
+						<div class="numbers">
+								<div id="7" value="7" onmousedown="check()" onclick="hienThi.display.value += 7">7</div>
+								<div id="8" value="8" onmousedown="check()" onclick="hienThi.display.value += 8">8</div>
+								<div id="9" value="9" onmousedown="check()" onclick="hienThi.display.value += 9">9</div>
+<!-- Trigger the modal with a button -->
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">lịch sử</button>
 
 
-            </div>
-            <div class="numbers">
-                <div id="4" value="4" onmousedown="check()" onclick="hienThi.display.value += 4">4</div>
-                <div id="5" value="5" onmousedown="check()" onclick="hienThi.display.value += 5">5</div>
-                <div id="6" value="6" onmousedown="check()" onclick="hienThi.display.value += 6">6</div>
-            </div>
-            <div class="numbers">
-                <div id="1" value="1" onmousedown="check()" onclick="hienThi.display.value += 1">1</div>
-                <div id="2" value="2" onmousedown="check()" onclick="hienThi.display.value += 2">2</div>
-                <div id="3" value="3" onmousedown="check()" onclick="hienThi.display.value += 3">3</div>
-            </div>
-            <div class="numbers">
-                <div id="0" onmousedown="check()" onclick="hienThi.display.value+=0">0</div>
-                <div onclick="hienThi.display.value+='.' " >.</div>
-                <div onclick="xoa()">C</div>
-            </div>
-        </div>
-        <div class="equal" id="result" onclick="chuyenTextResult()">=</div>
-    </div>
+						</div>
+						<div class="numbers">
+								<div id="4" value="4" onmousedown="check()" onclick="hienThi.display.value += 4">4</div>
+								<div id="5" value="5" onmousedown="check()" onclick="hienThi.display.value += 5">5</div>
+								<div id="6" value="6" onmousedown="check()" onclick="hienThi.display.value += 6">6</div>
+						</div>
+						<div class="numbers">
+								<div id="1" value="1" onmousedown="check()" onclick="hienThi.display.value += 1">1</div>
+								<div id="2" value="2" onmousedown="check()" onclick="hienThi.display.value += 2">2</div>
+								<div id="3" value="3" onmousedown="check()" onclick="hienThi.display.value += 3">3</div>
+						</div>
+						<div class="numbers">
+								<div id="0" onmousedown="check()" onclick="hienThi.display.value+=0">0</div>
+								<div onclick="hienThi.display.value+='.' " >.</div>
+								<div onclick="xoa()">C</div>
+						</div>
+				</div>
+				<div class="equal" id="result" onclick="chuyenTextResult()">=</div>
+		</div>
 </div>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+	<div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">lịch sử</h4>
-      </div>
-      <div class="modal-body">
-        <p id="history"></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" onclick="sapXep()">click here to sort</h4>
+			</div>
+			<div class="modal-body">
+				<p id="history"></p>
 
-  </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
 </div>
 
-  <script>
-      var total=0;
-      var arr;
-      var add= [];
-      // chuyển sang text mới..........................................................................
-      function chuyenTextCong(){
-        if(!hienThi.tongHop.value.endsWith("+")){
-          hienThi.tongHop.value += hienThi.display.value + "+";
-        hienThi.display.value = "";
-        }
-        
-      }
-      function chuyenTextTru(){
-        if(hienThi.tongHop.value.endsWith("-")){
-          hienThi.tongHop.value -="-";
-          hienThi.tongHop.value += hienThi.display.value + "+";
-          hienThi.display.value = "";
-        }
-        else
-        hienThi.tongHop.value += hienThi.display.value + "-";
-        hienThi.display.value = "";
-        
-      }
-      function chuyenTextNhan(){
-        if(!hienThi.tongHop.value.endsWith("x")){
-        hienThi.tongHop.value += hienThi.display.value + "x";
-        hienThi.display.value = "";
-        }
-      }
-      function chuyenTextChia(){
-        if(!hienThi.tongHop.value.endsWith("/")){
-        hienThi.tongHop.value += hienThi.display.value + "/";
-        hienThi.display.value = "";
-        }
-      }	
-      function check(){
-      	if(hienThi.display.value.search(' ')>=0){
-      		hienThi.display.value='';
-      	}
-      }
-      // xóa tất.........................................s.................................................
-      function xoa(){
-        hienThi.tongHop.value = '';
-        hienThi.display.value = '';
-      }
-      //chuyển thành number 
+	<script>
+			var total=0;
+			var arr;
+			var add= [];
+			var result1 = [];
+			// chuyển sang text mới..........................................................................
+			function chuyenTextCong(){
+				if(hienThi.tongHop.value.endsWith("+") ==true || hienThi.tongHop.value.endsWith("x") == true|| hienThi.tongHop.value.endsWith("/") == true|| hienThi.tongHop.value.endsWith("-") == true){}
+				else{
 
-      // in kết quả .......................................................................................
+					hienThi.tongHop.value += hienThi.display.value + "+";
+					hienThi.display.value = "";
+				}
+				
+			}
+			function chuyenTextTru(){
+				if(!hienThi.tongHop.value.endsWith("+")&&!hienThi.tongHop.value.endsWith("x")&&!hienThi.tongHop.value.endsWith("/")){
+				hienThi.tongHop.value += hienThi.display.value + "-";
+				hienThi.display.value = "";
+				}
+			}
+			function chuyenTextNhan(){
+				if(!hienThi.tongHop.value.endsWith("+")&&!hienThi.tongHop.value.endsWith("x")&&!hienThi.tongHop.value.endsWith("/")&&!hienThi.tongHop.value.endsWith("-")){
+				hienThi.tongHop.value += hienThi.display.value + "x";
+				hienThi.display.value = "";
+				}
+			}
+			function chuyenTextChia(){
+				if(!hienThi.tongHop.value.endsWith("+")&&!hienThi.tongHop.value.endsWith("x")&&!hienThi.tongHop.value.endsWith("/")&&!hienThi.tongHop.value.endsWith("-")){
+				hienThi.tongHop.value += hienThi.display.value + "/";
+				hienThi.display.value = "";
+				}
+			}	
+			function check(){
+				if(hienThi.display.value.search(' ')>=0){
+					hienThi.display.value='';
+				}
+			}
+			// xóa tất.........................................s.................................................
+			function xoa(){
+				hienThi.tongHop.value = '';
+				hienThi.display.value = '';
+			}
+			//chuyển thành number 
 
-      function chuyenTextResult(){
-        hienThi.tongHop.value += hienThi.display.value;
-        var str = hienThi.tongHop.value;
-	     if(str.search("/0")>=0){
-        hienThi.display.value=" error";
-        hienThi.tongHop.value= '';
-       }
-       else{
-        if(str.search("error")>=0){
-          hienThi.display.value=" error";
-          hienThi.tongHop.value= '';
-        }
-        else{
-        str = str.replace(/x/g,"*");
-        total= eval(str);
-        add[add.length] =str+ "=" + total +"<br>";
-        document.getElementById("history").innerHTML= "";
-        for(var i = 0 ; i < add.length ; i++){
-          document.getElementById("history").innerHTML+=add[i] + "<br>";
-        }
-        hienThi.display.value =' '+ total;
-         hienThi.tongHop.value= '';
-        }
-       }
-      }      
-  </script>
+			// in kết quả .......................................................................................
+
+			function chuyenTextResult(){
+				hienThi.tongHop.value += hienThi.display.value;
+				var str = hienThi.tongHop.value;
+				 if(str.search("/0")>=0){
+					hienThi.display.value=" error";
+					hienThi.tongHop.value= '';
+				 }
+				else{
+					if(str.search("error")>=0){
+						hienThi.display.value=" error";
+						hienThi.tongHop.value= '';
+					}
+					else{
+						str = str.replace(/x/g,"*");
+						for(var i =0; i < str.length ; i++){
+								if(str.charAt(i) == "-"){
+									var temp = 0;
+									for(var j= i+1 ; j < str.length; j++){
+										if(str.charAt(j) == "-"){
+											temp++;
+										}
+										else{ break;}
+									}
+									if(temp %2 == 0){
+										str = str.substring(0,i) +"-"+ str.substring(i+1+temp, str.length+1);
+										}
+									else{
+										str = str.substring(0,i) +"+"+ str.substring(i+1+temp, str.length+1);
+									}
+								}
+							
+						}
+						total= eval(str);
+						result1[result1.length] = total;
+						add[add.length] =str;
+						document.getElementById("history").innerHTML= "";
+						for(var i = 0 ; i < add.length ; i++){
+							var text = add[i] + "=" + result1[i];
+							// Tạo mới một thẻ p
+						          var p = document.createElement("p");
+						          
+						          // Tạo text node
+						          var text = document.createTextNode(text);
+						          
+						          // Thêm nội dung HTML vào thẻ p
+						          p.appendChild(text);
+						          
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(p);
+						          p.onclick  = function(event){p.remove()};
+							
+						}
+						hienThi.display.value =' '+ total;
+						hienThi.tongHop.value= '';
+					}
+				}
+			}
+//       ....................................................................
+			function sapXep(){
+				for(var i=0 ; i < add.length ; i++ ){
+					var temp1;
+					var temp2;
+					for(var j=i+1 ; j < add.length; j++){
+						if(result1[i]>result1[j]){
+							temp1= result1[i];
+							result1[i]= result1[j];
+							result1[j]= temp1;
+							temp2 = add[i];
+							add[i] = add[j]; 
+							add[j] = temp2;
+						}
+					}
+				}
+			document.getElementById("history").innerHTML= "";
+				for(var i = 0 ; i < add.length ; i++){
+					var text = add[i] + "=" + result1[i];
+							// Tạo mới một thẻ p
+						          var p = document.createElement("p");
+						          
+						          // Tạo text node
+						          var text = document.createTextNode(text);
+						          
+						          // Thêm nội dung HTML vào thẻ p
+						          p.appendChild(text);
+						          
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(p);
+						          p.onclick  = function(event){p.remove()};
+				}
+			}      
+//       ....................................................................
+
+	</script>

@@ -176,6 +176,7 @@ div.equal:active {
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4 class="modal-title" onclick="sapXep()">click here to sort</h4>
+								<h4 class="modal-title" onclick="del()">click here to del</h4>
 			</div>
 			<div class="modal-body">
 				<p id="history"></p>
@@ -285,7 +286,7 @@ div.equal:active {
 						          
 						          // Đưa thẻ P vào trong thẻ 
 						          document.getElementById('history').appendChild(p);
-						          p.onclick  = function(event){p.remove()};
+						         	
 							
 						}
 						hienThi.display.value =' '+ total;
@@ -314,18 +315,49 @@ div.equal:active {
 					var text = add[i] + "=" + result1[i];
 							// Tạo mới một thẻ p
 						          var p = document.createElement("p");
-						          
+						          var but = document.createElement("button");
 						          // Tạo text node
 						          var text = document.createTextNode(text);
-						          
+						   
 						          // Thêm nội dung HTML vào thẻ p
 						          p.appendChild(text);
 						          
 						          // Đưa thẻ P vào trong thẻ 
 						          document.getElementById('history').appendChild(p);
-						          p.onclick  = function(event){p.remove()};
+						      
 				}
 			}      
 //       ....................................................................
+			function del(){
+				var xoa ;
+				document.getElementById("history").innerHTML= "";
+				for(var i = 0 ; i < add.length ; i++){
+					var text = add[i] + "=" + result1[i];
+							// Tạo mới một thẻ p
+						          var but = document.createElement("button");
+						          // Tạo text createTextNode
+						          var text = document.createTextNode(text);
+						   		but.setAttribute("id", i.toString());
+						          // Thêm nội dung HTML vào thẻ p
+						        	but.setAttribute("class", "del1");
+						          but.appendChild(text);
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(but);
+						     	 			
+						
+				}
+			 	
+			}
+			let click = document.getElementByClassName('del1');
+			click.onclick(function(){
+
+				const id = this.getAttribute('id');
+				console.log(id);
+			})
+
+			function del1(){
+				var n = this.getAttribute("id");
+				console.log(n);
+			}
 
 	</script>

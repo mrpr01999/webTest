@@ -246,6 +246,9 @@ div.equal:active {
 					hienThi.display.value=" error";
 					hienThi.tongHop.value= '';
 				 }
+				 else if(str.length==0){
+				 	
+				 }
 				else{
 					if(str.search("error")>=0){
 						hienThi.display.value=" error";
@@ -388,9 +391,20 @@ div.equal:active {
 
 				}
 				document.getElementById("history").innerHTML="";
-				for(var i = 0 ; i<add.length ; i++){
+				var text0 = add[0] + "=" + result1[0].ketQua + "--so lan xuat hien: " + result1[0].soLanXuatHien;
+								// Tạo mới một thẻ p
+						          var but0 = document.createElement("p");
+						          // Tạo text createTextNode
+						          var text0 = document.createTextNode(text0);
+						   		but0.setAttribute("id", "0");
+						          // Thêm nội dung HTML vào thẻ p
+						          but0.appendChild(text0);
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(but0);
+				for(var i = 1 ; i<add.length ; i++){
+					if(result1[i].ketQua != result1[i-1].ketQua){
 					var text = add[i] + "=" + result1[i].ketQua + "--so lan xuat hien: " + result1[i].soLanXuatHien;
-							// Tạo mới một thẻ p
+								// Tạo mới một thẻ p
 						          var but = document.createElement("p");
 						          // Tạo text createTextNode
 						          var text = document.createTextNode(text);
@@ -399,6 +413,19 @@ div.equal:active {
 						          but.appendChild(text);
 						          // Đưa thẻ P vào trong thẻ 
 						          document.getElementById('history').appendChild(but);
+					}
+					else{
+						var text = add[i] + "=" + result1[i].ketQua;
+								// Tạo mới một thẻ p
+						          var but = document.createElement("p");
+						          // Tạo text createTextNode
+						          var text = document.createTextNode(text);
+						   		but.setAttribute("id", i.toString());
+						          // Thêm nội dung HTML vào thẻ p
+						          but.appendChild(text);
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(but);
+					}
 				}
 			}
 			function del1(click_id){

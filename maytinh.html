@@ -247,7 +247,6 @@ div.equal:active {
 					hienThi.tongHop.value= '';
 				 }
 				 else if(str.length==0){
-				 	
 				 }
 				else{
 					if(str.search("error")>=0){
@@ -349,8 +348,6 @@ div.equal:active {
 						          but.appendChild(text);
 						          // Đưa thẻ P vào trong thẻ 
 						          document.getElementById('history').appendChild(but);
-						     	 			
-						
 				}
 			}
 			function sortByNum(){
@@ -429,12 +426,24 @@ div.equal:active {
 				}
 			}
 			function del1(click_id){
-				var n = click_id;
-				var child = document.getElementById(n);
+				var m = click_id;
+				var child = document.getElementById(m);
 				child.parentNode.removeChild(child);
-				add.splice(n,1);
-				result1.splice(n,1);
-
+				add.splice(m,1);
+				result1.splice(m,1);
+				document.getElementById("history").innerHTML= "";
+				for(var i = 0 ; i < add.length ; i++){
+					var text = add[i] + "=" + result1[i].ketQua;
+							// Tạo mới một thẻ p
+						          var but = document.createElement("button");
+						          // Tạo text createTextNode
+						          var text = document.createTextNode(text);
+						   		but.setAttribute("id", i.toString());
+						          // Thêm nội dung HTML vào thẻ p
+						        	but.setAttribute("onclick", "del1(this.id)");
+						          but.appendChild(text);
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(but);
+				}
 			}
-
 	</script>

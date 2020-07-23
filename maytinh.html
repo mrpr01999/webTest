@@ -351,15 +351,15 @@ div.equal:active {
 					var text = add[i] + "=" + result1[i];
 							// Tạo mới một thẻ p
 
-			        var but = document.createElement("button");
+			          var but = document.createElement("button");
 			          // Tạo text createTextNode
 			          var text = document.createTextNode(text);
 			   		but.setAttribute("id", i.toString());
 			          // Thêm nội dung HTML vào thẻ p
 			        	but.setAttribute("onclick", "del1(this.id)");
-			        but.appendChild(text);
+			          but.appendChild(text);
 			          // Đưa thẻ P vào trong thẻ 
-			        document.getElementById('history').appendChild(but);	     	 			
+			          document.getElementById('history').appendChild(but);	     	 			
 						
 				}
 			 	

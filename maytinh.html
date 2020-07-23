@@ -175,8 +175,10 @@ div.equal:active {
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title" onclick="sapXep()">click here to sort</h4>
+				<h4 class="modal-title" onclick="sapXep()">click here to sort by total </h4>
+				<h4 class="modal-title" onclick="sortByNum()">click here to sort by number of occurrences</h4>
 								<h4 class="modal-title" onclick="del()">click here to del</h4>
+
 			</div>
 			<div class="modal-body">
 				<p id="history"></p>
@@ -270,11 +272,13 @@ div.equal:active {
 							
 						}
 						total= eval(str);
-						result1[result1.length] = total;
+						result1[result1.length] = new Object();
+						result1[result1.length-1].ketQua = total;
+						result1[result1.length-1].soLanXuatHien = 1;
 						add[add.length] =str;
 						document.getElementById("history").innerHTML= "";
 						for(var i = 0 ; i < add.length ; i++){
-							var text = add[i] + "=" + result1[i];
+							var text = add[i] + "=" + result1[i].ketQua;
 							// Tạo mới một thẻ p
 						          var p = document.createElement("p");
 						          
@@ -307,10 +311,7 @@ div.equal:active {
 					
 
 					for(var j=i+1 ; j < add.length; j++){
-						console.log(result1[i]);
-						console.log(result1[j]);
-
-						if(result1[i]>result1[j]){
+						if(result1[i].ketQua>result1[j].ketQua){
 							temp1= result1[i];
 							
 							result1[i]= result1[j];
@@ -329,26 +330,28 @@ div.equal:active {
 				}
 			document.getElementById("history").innerHTML= "";
 				for(var i = 0 ; i < add.length ; i++){
-					var text = add[i] + "=" + result1[i];
-					// Tạo mới một thẻ p
-				          var p = document.createElement("p");
-				          
-				          // Tạo text node
-				          var text = document.createTextNode(text);
-				          
-				          // Thêm nội dung HTML vào thẻ p
-				          p.appendChild(text);
-				          
-				          // Đưa thẻ P vào trong thẻ 
-				          document.getElementById('history').appendChild(p);
-				          p.onclick  = function(event){p.remove()};
+
+					var text = add[i] + "=" + result1[i].ketQua;
+							// Tạo mới một thẻ p
+						          var p = document.createElement("p");
+						          var but = document.createElement("button");
+						          // Tạo text node
+						          var text = document.createTextNode(text);
+						   
+						          // Thêm nội dung HTML vào thẻ p
+						          p.appendChild(text);
+						          
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(p);
+						      
+
 				}
 			}      
 //       ....................................................................
 			function del(){
 				document.getElementById("history").innerHTML= "";
 				for(var i = 0 ; i < add.length ; i++){
-					var text = add[i] + "=" + result1[i];
+					var text = add[i] + "=" + result1[i].ketQua;
 							// Tạo mới một thẻ p
 
 			          var but = document.createElement("button");
@@ -362,9 +365,56 @@ div.equal:active {
 			          document.getElementById('history').appendChild(but);	     	 			
 						
 				}
-			 	
 			}
-			
+
+			function sortByNum(){
+				for(var i = 0; i<add.length; i++){
+						for (var j = i+1; j < add.length; j++) {
+							if(result1[i].ketQua== result1[j].ketQua){
+								result1[i].soLanXuatHien++;
+								result1[j].soLanXuatHien++;
+							}
+						}
+				}
+				for(var i=0 ; i < add.length ; i++ ){
+					var temp1;
+					var temp2;
+					for(var j=i+1 ; j < add.length; j++){
+						if(result1[i].soLanXuatHien<result1[j].soLanXuatHien){
+							temp1= result1[i];
+							result1[i]= result1[j];
+							result1[j]= temp1;
+							temp2 = add[i];
+							add[i] = add[j]; 
+							add[j] = temp2;
+						}
+					}
+					for (var j= 0; j < add.length; j++) {
+						if (result1[i].soLanXuatHien>result1[j].soLanXuatHien && result1[i].ketQua<result1[j].ketQua) {
+							temp1= result1[i];
+							result1[i]= result1[j];
+							result1[j]= temp1;
+							temp2 = add[i];
+							add[i] = add[j]; 
+							add[j] = temp2;
+						}
+					}
+				}
+				document.getElementById("history").innerHTML="";
+				for(var i = 0 ; i<add.length ; i++){
+					var text = add[i] + "=" + result1[i].ketQua;
+							// Tạo mới một thẻ p
+						          var but = document.createElement("p");
+						          // Tạo text createTextNode
+						          var text = document.createTextNode(text);
+						   		but.setAttribute("id", i.toString());
+						          // Thêm nội dung HTML vào thẻ p
+						        	but.setAttribute("onclick", "del1(this.id)");
+						          but.appendChild(text);
+						          // Đưa thẻ P vào trong thẻ 
+						          document.getElementById('history').appendChild(but);
+				}
+			}
 
 			function del1(click_id){
 				var n = click_id;
